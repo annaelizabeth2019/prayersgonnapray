@@ -13,7 +13,7 @@ function signup(user) {
     // to handle a duplicate email
     throw new Error('Email already taken!');
   })
-  .then((token) => token.token);
+  .then(({token}) => token);
 }
 
 function getUser() {

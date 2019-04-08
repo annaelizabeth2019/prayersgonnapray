@@ -17,6 +17,7 @@ import userService from '../../utils/userService';
 class App extends Component {
   constructor() {
     super();
+    this.state = {...this.getInitialState()};
   }
     /*--- Callback Methods ---*/
 
@@ -48,18 +49,21 @@ class App extends Component {
             <WelcomePage
               history={history}
               handleSignupOrLogin={this.handleSignupOrLogin}
+              user={this.state.user}
             />
           }/>
           <Route exact path='/signup' render={({ history }) => 
             <SignupPage
               history={history}
               handleSignupOrLogin={this.handleSignupOrLogin}
+              user={this.state.user}
             />
           }/>
           <Route exact path='/login' render={({ history }) => 
             <LoginPage
               history={history}
               handleSignupOrLogin={this.handleSignupOrLogin}
+              user={this.state.user}
             />
           }/>
         </Switch>
