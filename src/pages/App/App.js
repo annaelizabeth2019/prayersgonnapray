@@ -13,11 +13,20 @@ import WelcomePage from '../WelcomePage/WelcomePage'
 
 //services
 import userService from '../../utils/userService';
+import { getCurrentLatLng } from '../../utils/utilities'
+import prayersService from '../../utils/prayersService'
 
 class App extends Component {
   constructor() {
     super();
     this.state = {...this.getInitialState()};
+  }
+
+  getInitialState() {
+    return {
+      prayers: [],
+      location: { lat: null, lng: null }
+    };
   }
     /*--- Callback Methods ---*/
 
@@ -33,6 +42,10 @@ class App extends Component {
     /*--- Lifecycle Methods ---*/
 
     async componentDidMount() {
+      console.log('mounted!')
+      const {lat, lng} = await getCurrentLatLng();
+      this.setState({location: {lat, lng}});
+      console.log(lat, lng);
       const user = userService.getUser();
       this.setState({ user });
     }

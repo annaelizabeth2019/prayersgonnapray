@@ -38,7 +38,7 @@ class LoginPage extends Component {
             <h1 className="b">Log In</h1>
         </div>
         </header>
-        <div class="row">
+        <div className="row">
             <form className="col" onSubmit={this.handleSubmit} >
             <div className="row">
                 <div className="col input-field">

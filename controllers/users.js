@@ -14,7 +14,7 @@ module.exports = {
       const token = createJWT(user);
       res.json({ token });
     } catch (err) {
-      // This would be a duplicate email
+      // For duplicate emails
       res.status(400).json(err);
     }
   }
