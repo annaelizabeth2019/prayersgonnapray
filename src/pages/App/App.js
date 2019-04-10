@@ -1,15 +1,17 @@
 //basic React Stuff
 import React, { Component } from 'react';
 import './App.scss';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 //Components
 import NavBar from '../../components/NavBar/NavBar';
+import PrayerBoard from '../../components/PrayerBoard/PrayerBoard'
 
 //Pages
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import WelcomePage from '../WelcomePage/WelcomePage'
+import PrayerRequest from '../PrayerRequest/PrayerRequest'
 
 //services
 import userService from '../../utils/userService';
@@ -17,6 +19,9 @@ import { getCurrentLatLng } from '../../utils/utilities'
 import prayersService from '../../utils/prayersService'
 
 class App extends Component {
+
+  /*---- State ----*/
+
   constructor() {
     super();
     this.state = {...this.getInitialState()};
@@ -47,7 +52,8 @@ class App extends Component {
       this.setState({location: {lat, lng}});
       console.log(lat, lng);
       const user = userService.getUser();
-      this.setState({ user });
+      const prayers = await prayersService.index();
+      this.setState({ user, prayers });
     }
 
   render() {
@@ -77,6 +83,22 @@ class App extends Component {
               history={history}
               handleSignupOrLogin={this.handleSignupOrLogin}
               user={this.state.user}
+            />
+          }/>
+          <Route exact path='/PrayerBoard' render={({ history }) => 
+            <PrayerBoard
+              history={history}
+              user={this.state.user}
+              location={this.state.location}
+              prayers={this.state.prayers}
+            />
+          }/>
+          <Route exact path='/PrayerRequest' render={({ history }) => 
+            <PrayerRequest
+              history={history}
+              handleSignupOrLogin={this.handleSignupOrLogin}
+              user={this.state.user}
+              location={this.state.location}
             />
           }/>
         </Switch>

@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const prayerSchema = new Schema({
   higherPower: String,
-  prayer: String,
+  text: String,
   location: {
     lat: Number,
     lng: Number

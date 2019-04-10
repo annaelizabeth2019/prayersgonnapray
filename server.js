@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const favicon = require('serve-favicon');
+const cors = require('cors')
 //Mount the morgan logging and body parsing middleware
 const logger = require('morgan');
 
@@ -14,6 +15,7 @@ require('./config/database');
 
 app.use(logger('dev'));
 app.use(express.json());
+app.use(cors());
 
 //Mount and configure the serve-favicon & static middleware so that they serve from the build (production-ready) folder
 app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
