@@ -46,15 +46,16 @@ class App extends Component {
 
     /*--- Lifecycle Methods ---*/
 
-    async componentDidMount() {
-      console.log('mounted!')
-      const {lat, lng} = await getCurrentLatLng();
-      this.setState({location: {lat, lng}});
-      console.log(lat, lng);
-      const user = userService.getUser();
-      const prayers = await prayersService.index();
-      this.setState({ user, prayers });
-    }
+  async componentDidMount() {
+    //get the location of the user
+    const {lat, lng} = await getCurrentLatLng();
+    //get user
+    const user = userService.getUser();
+    //go to the database for prayers
+    const prayers = await prayersService.index();
+    //update state
+    this.setState({ user, prayers, location: {lat, lng} });
+  }
 
   render() {
     return (
@@ -63,45 +64,45 @@ class App extends Component {
         user={this.user}
         handleLogout={this.handleLogout}
       />
-        <Switch>
-          <Route exact path='/' render={({ history }) => 
-            <WelcomePage
-              history={history}
-              handleSignupOrLogin={this.handleSignupOrLogin}
-              user={this.state.user}
-            />
+      <Switch>
+        <Route exact path='/' render={({ history }) => 
+          <WelcomePage
+            history={history}
+            handleSignupOrLogin={this.handleSignupOrLogin}
+            user={this.state.user}
+          />
+        }/>
+        <Route exact path='/signup' render={({ history }) => 
+          <SignupPage
+            history={history}
+            handleSignupOrLogin={this.handleSignupOrLogin}
+            user={this.state.user}
+          />
+        }/>
+        <Route exact path='/login' render={({ history }) => 
+          <LoginPage
+            history={history}
+            handleSignupOrLogin={this.handleSignupOrLogin}
+            user={this.state.user}
+          />
+        }/>
+        <Route exact path='/PrayerBoard' render={({ history }) => 
+          <PrayerBoard
+            history={history}
+            user={this.state.user}
+            location={this.state.location}
+            prayers={this.state.prayers}
+          />
           }/>
-          <Route exact path='/signup' render={({ history }) => 
-            <SignupPage
-              history={history}
-              handleSignupOrLogin={this.handleSignupOrLogin}
-              user={this.state.user}
-            />
-          }/>
-          <Route exact path='/login' render={({ history }) => 
-            <LoginPage
-              history={history}
-              handleSignupOrLogin={this.handleSignupOrLogin}
-              user={this.state.user}
-            />
-          }/>
-          <Route exact path='/PrayerBoard' render={({ history }) => 
-            <PrayerBoard
-              history={history}
-              user={this.state.user}
-              location={this.state.location}
-              prayers={this.state.prayers}
-            />
-          }/>
-          <Route exact path='/PrayerRequest' render={({ history }) => 
-            <PrayerRequest
-              history={history}
-              handleSignupOrLogin={this.handleSignupOrLogin}
-              user={this.state.user}
-              location={this.state.location}
-            />
-          }/>
-        </Switch>
+        <Route exact path='/PrayerRequest' render={({ history }) => 
+          <PrayerRequest
+            history={history}
+            handleSignupOrLogin={this.handleSignupOrLogin}
+            user={this.state.user}
+            location={this.state.location}
+          />
+        }/>
+      </Switch>
       </div>
     );
   }

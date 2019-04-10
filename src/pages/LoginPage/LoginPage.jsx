@@ -32,11 +32,11 @@ class LoginPage extends Component {
     return (
       <div className="LoginPage">
         <header className="header-footer LoginPageStyle">
-        <div className="text">
+        {/* <div className="text">
             <h1 className="r">Log In</h1>
             <h1 className="g">Log In</h1>
             <h1 className="b">Log In</h1>
-        </div>
+        </div> */}
         </header>
         <div className="row">
             <form className="col" onSubmit={this.handleSubmit} >

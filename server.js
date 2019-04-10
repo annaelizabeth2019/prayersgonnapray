@@ -2,7 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const favicon = require('serve-favicon');
-const cors = require('cors')
+//!!!IMPORTANT!!! Set options on cors before launching
+const cors = require('cors');
 //Mount the morgan logging and body parsing middleware
 const logger = require('morgan');
 

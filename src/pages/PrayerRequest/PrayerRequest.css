@@ -1,0 +1,12 @@
+body .PrayerRequest {
+    height:100%;
+    background-color: rgb(183, 236, 109);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Major Mono Display', monospace;
+}
+.prayer-form-img {
+    height: 40vmin;
+    margin: 0 auto;
+}

@@ -1,0 +1,16 @@
+.PrayerForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    padding: 3vmin;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+}
+
+textarea.materialize-textarea:focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]) {
+    border-bottom: 3px solid white;
+    box-shadow: 0 1px 0 0 white;
+}
+

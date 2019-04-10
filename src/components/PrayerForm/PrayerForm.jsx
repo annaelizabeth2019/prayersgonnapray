@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import prayerService from '../../utils/prayersService';
+import './PrayerForm.css'
+
 
 class PrayerRequest extends Component {
 
@@ -35,23 +37,22 @@ class PrayerRequest extends Component {
 
   render() {
     return (
-      <div>
-        <header className="header-footer">Prayer Request</header>
-        <form className="form-horizontal" onSubmit={this.handleSubmit} >
+      <div className="PrayerForm">
+        <form className="form-horizontal form" onSubmit={this.handleSubmit} >
           <div className="form-group">
             <div className="col-sm-12">
-            <input type="text" className="form-control" placeholder="Your Higher Power" value={this.state.higherPower} name="higherPower" onChange={this.handleChange} />
+            <input type="text" className="form-control" name="higherPower" onChange={this.handleChange} /><label className="black-text">Your Higher Power</label>
             </div>
           </div>
           <div className="form-group">
             <div className="col-sm-12">
-              <input type="text" className="form-control" placeholder="Your Prayer" value={this.state.text} name="text" onChange={this.handleChange} />
+              <textarea type="textarea" className="form-control prayer-text materialize-textarea" value={this.state.text} name="text" onChange={this.handleChange} /><label className="black-text">Your Prayer</label>
             </div>
           </div>
           <div className="form-group">
             <div className="col-sm-12 text-center">
-              <button className="btn btn-default" disabled={this.isFormInvalid()}>Send Your Prayer to {this.state.higherPower}</button>&nbsp;&nbsp;
-              <Link to='/prayerboard'>Cancel</Link>
+              <button className="btn btn-large" disabled={this.isFormInvalid()}>Pray</button>&nbsp;&nbsp;
+              <Link to='/prayerboard' className="btn waves-light orange accent-3">Cancel</Link>
             </div>
           </div>
         </form>
@@ -61,3 +62,4 @@ class PrayerRequest extends Component {
 };
 
 export default PrayerRequest;
+

@@ -7,9 +7,8 @@ export function getCurrentLatLng() {
     });
   }
 
-//    if (navigator.geolocation) {
-//           navigator.geolocation.getCurrentPosition(function(position) {
-//             var pos = {
-//               lat: position.coords.latitude,
-//               lng: position.coords.longitude
-//             };
+// export function getReverseGeocode() {
+//   return new Promise(resolve => {
+//     navigator.geolocation.
+//   })
+// }
