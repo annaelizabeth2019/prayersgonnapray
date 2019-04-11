@@ -37,7 +37,7 @@ class PrayerRequest extends Component {
 
   render() {
     return (
-      <div className="PrayerForm">
+      <div className="PrayerForm z-depth-3">
         <form className="form-horizontal form" onSubmit={this.handleSubmit} >
           <div className="form-group">
             <div className="col-sm-12">

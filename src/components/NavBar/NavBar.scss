@@ -1,3 +1,14 @@
+.NavBar {
+  display: flex;
+    flex-flow: row nowrap;
+    background-color: darkslateblue;
+    color: white;
+}
+
 .NavBar-welcome {
-    color: grey;
+    color: white;
   }
+
+.NavBar a {
+  color: pink;
+}

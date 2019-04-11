@@ -4,7 +4,7 @@ import './NavBar.scss';
 
 const NavBar = (props) => {
     let nav = props.user ?
-      <div>
+      <div className="NavBar">
         <Link to='/prayers' className='NavBar-link'>Your p r a y e r s</Link>
         &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
         <Link to='' className='NavBar-link' onClick={props.handleLogout}>LOG OUT</Link>

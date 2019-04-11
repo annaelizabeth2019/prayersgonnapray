@@ -52,16 +52,16 @@ class App extends Component {
     //get user
     const user = userService.getUser();
     //go to the database for prayers
-    const prayers = await prayersService.index();
+    // const prayers = await prayersService.index();
     //update state
-    this.setState({ user, prayers, location: {lat, lng} });
+    this.setState({ user, location: {lat, lng} });
   }
 
   render() {
     return (
       <div className="App">
       <NavBar
-        user={this.user}
+        user={this.state.user}
         handleLogout={this.handleLogout}
       />
       <Switch>
