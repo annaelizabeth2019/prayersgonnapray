@@ -4,6 +4,7 @@ const prayersCtrl = require('../../controllers/prayers');
 
 
 router.get('/', prayersCtrl.recentPrayers);
+router.get('/prayerboard', prayersCtrl.recentPrayers);
 
 /*---------- Protected Routes ----------*/
 // Process the token for only the routes below

@@ -1,7 +1,7 @@
 //basic React Stuff
 import React, { Component } from 'react';
 import './App.scss';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 //Components
 import NavBar from '../../components/NavBar/NavBar';
@@ -29,7 +29,6 @@ class App extends Component {
 
   getInitialState() {
     return {
-      prayers: [],
       location: { lat: null, lng: null }
     };
   }
@@ -50,9 +49,7 @@ class App extends Component {
     //get the location of the user
     const {lat, lng} = await getCurrentLatLng();
     //get user
-    const user = userService.getUser();
-    //go to the database for prayers
-    // const prayers = await prayersService.index();
+    const user = userService.getUser();;
     //update state
     this.setState({ user, location: {lat, lng} });
   }
@@ -92,15 +89,20 @@ class App extends Component {
             user={this.state.user}
             location={this.state.location}
             prayers={this.state.prayers}
+
           />
           }/>
-        <Route exact path='/PrayerRequest' render={({ history }) => 
+        <Route exact path='/PrayerRequest' render={({ history }) => (
+          userService.getUser() ?
           <PrayerRequest
             history={history}
             handleSignupOrLogin={this.handleSignupOrLogin}
             user={this.state.user}
             location={this.state.location}
-          />
+            />
+            :
+            <Redirect to='/login' />
+          )
         }/>
       </Switch>
       </div>
