@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import styles from './PrayerBoard.module.css'
 import Prayer from '../Prayer/Prayer'
 import PrayerService from '../../utils/prayersService'
+import loading from '../../images/loading.gif'
 
 class PrayerBoard extends Component {
 
@@ -15,7 +16,7 @@ class PrayerBoard extends Component {
         }
         render() {
             return (
-                <div className="PrayerBoard">
+                <div className={styles.PrayerBoard}>
                     {this.state.prayers.length > 1 ? this.state.prayers.map((prayer, idx) => 
                         <Prayer 
                         key={idx}
@@ -23,8 +24,12 @@ class PrayerBoard extends Component {
                         location={prayer.location}
                         higherPower={prayer.higherPower}
                         /> 
-                    ) :
-                    <p>Prayers Will Arrive Soon.</p>
+                    ) : 
+                    <div className="noPrayers flex-column center">
+                        <code>Prayers ar Being Fetched From the Cloud. Please Wait.</code>
+                        <br /><img src={loading} alt="Blocks boucing around" /><br />
+                        <code>if you are not automatically redirected please consult your nearest <br />s p i r i t u a l &nbsp; l e a d e r .</code>
+                    </div>
                     }    
                 </div>
             );

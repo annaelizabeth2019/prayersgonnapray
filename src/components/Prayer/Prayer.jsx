@@ -3,7 +3,7 @@ import styles from './Prayer.module.css'
 
 const Prayer = (props) => (
     <div className={styles.Prayer}>
-    <div className="card">
+    <div className="card black-text">
        <p>{props.text}</p>
     </div>
     </div>
