@@ -1,0 +1,10 @@
+body .PrayerBoard {
+    height: 100%;
+    background-color: black;
+    background-size: cover;
+    color: white;
+}
+
+.prayer-card-container {
+    width: 10px;
+}
