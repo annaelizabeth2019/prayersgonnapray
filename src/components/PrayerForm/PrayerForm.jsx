@@ -5,29 +5,33 @@ import './PrayerForm.css'
 
 
 class PrayerRequest extends Component {
+
   state = {
     higherPower: '',
     text: '',
     location: this.props.location,
-    user: ''
-  };
+    user: this.props.user
+  }
+
   componentDidMount() {
-    // const user = this.props;
-    this.setState({user: this.props.user});
+    const email = this.state.user
+    this.setState({ user: email })
   }
 
   handleChange = (e) => {
+    const user = this.props.user;
     this.props.updateMessage('');
     this.setState({
-      [e.target.name]: e.target.value
-    });
+      [e.target.name]: e.target.value,
+      user: user.email
+    })
   }
 
   handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await prayerService.create(this.state);
-      // go to the board
+      // Back to the main
       this.props.history.push('/prayerboard');
     } catch (err) {
       // Invalid user data

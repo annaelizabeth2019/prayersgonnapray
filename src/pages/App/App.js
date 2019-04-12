@@ -66,21 +66,18 @@ class App extends Component {
         <Route exact path='/' render={({ history }) => 
           <WelcomePage
             history={history}
-            handleSignupOrLogin={this.handleSignupOrLogin}
             user={this.state.user}
           />
         }/>
         <Route exact path='/yourprayers' render={({ history }) => 
           <YourPrayers
             history={history}
-            handleSignupOrLogin={this.handleSignupOrLogin}
             user={this.state.user}
           />
         }/>
         <Route exact path='/signup' render={({ history }) => 
           <SignupPage
             history={history}
-            handleSignupOrLogin={this.handleSignupOrLogin}
             user={this.state.user}
           />
         }/>
