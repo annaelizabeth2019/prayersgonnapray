@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import './YourPrayers.css';
-import UserService from '../../utils/userService'
+import './PrayerList.css';
+// import UserService from '../../utils/userService'
+// getMyPrayers
 
 const PrayerList = (props) => {
-    return (
-        <div className='NavBar page-footer'>
-          <div className="container">
-          {nav}
-          </div>
-        </div>
-      
-    )
+  return (
+    <tr>
+      <td>TIME O'CLOCK</td>
+      <td>{props.higherPower}</td>
+      <td>{props.text}</td>
+    </tr>
+  )
 }
 
 export default PrayerList;

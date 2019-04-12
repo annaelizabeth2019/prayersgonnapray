@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import prayerService from '../../utils/prayersService';
 import './PrayerForm.css'
 
 
@@ -9,35 +8,19 @@ class PrayerRequest extends Component {
   state = {
     higherPower: '',
     text: '',
-    location: this.props.location,
-    user: {}
-  }
-
-  componentDidMount() {
-    // let user = this.props.user
-    // this.setState({user: user})
-    console.log('Component did mount', this.props)
   }
 
   handleChange = (e) => {
-    // const user = this.props.user;
     this.props.updateMessage('');
     this.setState({
       [e.target.name]: e.target.value,
-      // user: user.email
     })
   }
 
-  handleSubmit = async (e) => {
+  handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      await prayerService.create(this.state);
-      // Back to the main
-      this.props.history.push('/prayerboard');
-    } catch (err) {
-      // Invalid user data
-      this.props.updateMessage(err.message);
-    }
+    this.props.handlePrayer(this.state.text, this.state.higherPower)
+    this.props.history.push('/prayerboard');
   }
 
   isFormInvalid() {
@@ -46,7 +29,7 @@ class PrayerRequest extends Component {
 
   render() {
     // const { email } = this.props.user
-    console.log(this.props)
+    console.log('render!', this.props)
     return (
       <div className="PrayerForm z-depth-3">
         <form className="form-horizontal form" onSubmit={this.handleSubmit} >
@@ -62,7 +45,7 @@ class PrayerRequest extends Component {
           </div>
           <div className="form-group">
             <div className="col-sm-12 text-center">
-              <button className="btn btn-large" disabled={this.isFormInvalid()}>Pray</button>&nbsp;&nbsp;<code className="center z-depth-3">send to t h e &nbsp; c l o u d</code>&nbsp;&nbsp;
+              <button className="btn btn-large" disabled={this.isFormInvalid()}>Pray</button>&nbsp;&nbsp;&nbsp;&nbsp;
               <Link to='/prayerboard' className="btn waves-light orange accent-3 ">Cancel</Link>
             </div>
           </div>

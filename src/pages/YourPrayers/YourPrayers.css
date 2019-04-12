@@ -1,0 +1,12 @@
+body .YourPrayers {
+    height: 100vh;
+    background-color: rgb(191	137	148	);
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    /* text-align: center; */
+}
+
+.user-dash-cloud {
+    width: 100%;
+}

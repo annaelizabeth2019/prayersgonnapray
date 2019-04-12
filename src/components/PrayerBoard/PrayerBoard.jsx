@@ -3,7 +3,7 @@ import styles from './PrayerBoard.css'
 import PrayerCard from '../PrayerCard/PrayerCard'
 import PrayerService from '../../utils/prayersService'
 import loading from '../../images/loading.gif'
-import NavBar from '../../components/NavBar/NavBar'
+// import NavBar from '../../components/NavBar/NavBar'
 
 class PrayerBoard extends Component {
 
@@ -17,19 +17,15 @@ class PrayerBoard extends Component {
         }
         render() {
             return (
-                <div className="PrayerBoard">
-                     {/* <NavBar
-                        user={props.user}
-                        handleLogout={props.handleLogout}
-                    /> */}
+                <div className={styles.Prayerboard}>
                     <div classname="card blue">
                         {this.state.prayers.length > 1 ? this.state.prayers.map((prayer, idx) => 
                             <PrayerCard
-                                key={idx}
-                                text={prayer.text}
-                                location={prayer.location}
-                                higherPower={prayer.higherPower}
-                                /> 
+                            key={idx}
+                            text={prayer.text}
+                            location={prayer.location}
+                            higherPower={prayer.higherPower}
+                            /> 
                         ) : 
                         <div className="noPrayers flex-column center">
                             <code>Prayers ar Being Fetched From the Cloud. Please Wait.</code>

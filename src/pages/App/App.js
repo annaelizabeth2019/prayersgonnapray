@@ -30,7 +30,9 @@ class App extends Component {
 
   getInitialState() {
     return {
-      location: { lat: null, lng: null }
+      location: { lat: null, lng: null },
+      prayers: [],
+      user: null
     };
   }
     /*--- Callback Methods ---*/
@@ -44,15 +46,41 @@ class App extends Component {
       this.setState({user: userService.getUser()});
     }
 
+    handlePrayer = async (text, higherPower) => {
+      try {
+        await prayersService.create({
+          text,
+          higherPower,
+          location: this.state.location,
+          user: this.state.user.email,
+        });
+      } catch (err) {
+        console.log(err);
+      } 
+    }
+
+    // getMyPrayers = async () => {
+    //   try {
+    //     await userService.myPrayers(this.state.user.email)
+    //   } catch (err) {
+    //     console.log('This is an err in getMyprayers from app.js', err)
+    //   }
+    // }
+
     /*--- Lifecycle Methods ---*/
 
   async componentDidMount() {
     //get the location of the user
     const {lat, lng} = await getCurrentLatLng();
     //get user
-    const user = userService.getUser();;
+    const user = await userService.getUser();
+    // console.log(this.user.email)
+    // await 
     //update state
     this.setState({ user, location: {lat, lng} });
+    // const prayers = await userService.myPrayers(this.state.user.email)
+    const prayers = this.state.user ? await userService.myPrayers(this.state.user.email) : [];
+    this.setState({prayers}) 
   }
 
   render() {
@@ -73,6 +101,8 @@ class App extends Component {
           <YourPrayers
             history={history}
             user={this.state.user}
+            // getMyPrayers={this.getMyPrayers}
+            prayers={this.state.prayers}
           />
         }/>
         <Route exact path='/signup' render={({ history }) => 
@@ -93,7 +123,7 @@ class App extends Component {
             history={history}
             user={this.state.user}
             location={this.state.location}
-            prayers={this.state.prayers}
+            // prayers={this.state.prayers}
 
           />
           }/>
@@ -103,6 +133,7 @@ class App extends Component {
             history={history}
             user={this.state.user}
             location={this.state.location}
+            handlePrayer={this.handlePrayer}
             />
             :
             <Redirect to='/login' />

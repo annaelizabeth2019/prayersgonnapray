@@ -37,9 +37,55 @@ function login(creds) {
   .then(({token}) => tokenService.setToken(token));
 }
 
+// function myPrayers(userEmail) {
+//   const options = {
+//     method: 'GET',
+//     headers: {
+//       'Content-type': 'application/json',
+//       'Authorization': 'Bearer ' + tokenService.getToken(),
+//     }
+//   };
+//   console.log('this is options', options)
+//     return fetch(BASE_URL + 'yourprayers', options);
+// }
+
+
+function myPrayers(userEmail) {
+  return fetch(BASE_URL + 'yourprayers', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + tokenService.getToken(),
+    },
+    body: JSON.stringify({userEmail})
+  })
+  .then(res => {
+    if (res.ok) return res.json();
+    console.log('is this working at all?')
+    // throw new Error('Bad Credentials!');
+  })
+  .catch(error => {
+    console.log(error)
+  })
+}
+
+
+// function index() {
+//   const options = {
+//     method: 'GET',
+//     headers: {
+//       'Content-type': 'application/json',
+//       'Authorization': 'Bearer ' + tokenService.getToken(),
+//     }
+//   };
+//     return fetch(BASE_URL, options).then(res => res.json());
+
+// }
+
 export default {
   signup, 
   getUser,
   logout,
-  login
+  login,
+  myPrayers
 };

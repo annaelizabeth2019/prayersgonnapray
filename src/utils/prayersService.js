@@ -18,6 +18,8 @@ function index() {
     return fetch(BASE_URL, options).then(res => res.json());
 
 }
+
+
   
 function create(prayer) {
   const options = {
