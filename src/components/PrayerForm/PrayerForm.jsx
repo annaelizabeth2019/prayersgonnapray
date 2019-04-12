@@ -10,20 +10,21 @@ class PrayerRequest extends Component {
     higherPower: '',
     text: '',
     location: this.props.location,
-    user: this.props.user
+    user: {}
   }
 
   componentDidMount() {
-    const email = this.state.user
-    this.setState({ user: email })
+    // let user = this.props.user
+    // this.setState({user: user})
+    console.log('Component did mount', this.props)
   }
 
   handleChange = (e) => {
-    const user = this.props.user;
+    // const user = this.props.user;
     this.props.updateMessage('');
     this.setState({
       [e.target.name]: e.target.value,
-      user: user.email
+      // user: user.email
     })
   }
 
@@ -44,6 +45,8 @@ class PrayerRequest extends Component {
   }
 
   render() {
+    // const { email } = this.props.user
+    console.log(this.props)
     return (
       <div className="PrayerForm z-depth-3">
         <form className="form-horizontal form" onSubmit={this.handleSubmit} >
