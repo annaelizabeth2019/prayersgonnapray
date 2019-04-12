@@ -1,8 +1,9 @@
 .NavBar {
   display: flex;
-    flex-flow: row nowrap;
-    background-color: darkslateblue;
-    color: white;
+  flex-flow: row nowrap;
+  background-color: darkslateblue;
+  color: white;
+  align-items: center;
 }
 
 .NavBar-welcome {

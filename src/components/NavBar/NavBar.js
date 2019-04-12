@@ -4,24 +4,27 @@ import './NavBar.scss';
 
 const NavBar = (props) => {
     let nav = props.user ?
-      <div className="NavBar">
-        <Link to='/prayers' className='NavBar-link'>Your p r a y e r s</Link>
-        &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-        <Link to='' className='NavBar-link' onClick={props.handleLogout}>LOG OUT</Link>
-        &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-        <span className='NavBar-welcome'>WELCOME, {props.user.name}</span>
-      </div>
-      :
       <div>
-        <Link to='/login' className='NavBar-link'>LOG IN</Link>
-        &nbsp;&nbsp;|&nbsp;&nbsp;
-        <Link to='/signup' className='NavBar-link'>SIGN UP</Link>
-      </div>;
-  
-    return (
-      <div className='NavBar'>
-        {nav}
-      </div>
+          <Link to='/yourprayers' className='NavBar-link'>Your p r a y e r s</Link>
+          &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+          <Link to='' className='NavBar-link' onClick={props.handleLogout}>LOG OUT</Link>
+          &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+          <span className='NavBar-welcome'>WELCOME, {props.user.name}</span>
+        </div>
+        :
+        <div>
+          <Link to='/login' className='NavBar-link'>LOG IN</Link>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <Link to='/signup' className='NavBar-link'>SIGN UP</Link>
+        </div>;
+        
+      return (
+        <div className='NavBar page-footer'>
+          <div className="container">
+          {nav}
+          </div>
+        </div>
+      
     );
   };
   

@@ -1,13 +1,15 @@
-var Prayer = require('../models/prayer');
+const Prayer = require('../models/prayer');
+const User = require('../models/user');
 
 module.exports = {
   create,
   savePrayer,
-  recentPrayers
+  recentPrayers,
 };
 
   
 async function savePrayer(req, res) {
+  console.log(req.body)
   const prayer = new Prayer(req.body);
   try {
     await prayer.save();
@@ -18,15 +20,13 @@ async function savePrayer(req, res) {
 
 
 async function create(req, res) {
-  // console.log('prayer: ', req.body)
-  // const prayer = new Prayer(req.body);
+  const user = req.body.user
+  const prayer = req.body;
   try {
-    await Prayer.create(req.body);
-    Prayer.save();
-    console.log(prayer)
-    prayers(req, res);
+    Prayer.create(req.body).then( (res) => User.findOneAndUpdate({email: user}, { $push : {prayers: res.id} })).catch(console.log(err));
   } catch (err) {
     res.json({err});
+    console.log(err)
   }
 }
 

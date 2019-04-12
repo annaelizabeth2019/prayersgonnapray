@@ -7,7 +7,8 @@ const prayerSchema = new Schema({
   location: {
     lat: Number,
     lng: Number
-  }
+  },
+  user: String
 }, {
   timestamps: true
 });

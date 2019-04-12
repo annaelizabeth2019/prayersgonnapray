@@ -17,7 +17,7 @@ class PrayerRequest extends Component {
   render() {
     return (
       <div className='PrayerRequest'>
-      <header className="header-footer"><h1>Prayer Request</h1></header>
+        <header className="header-footer center"><h3>Prayer Request</h3></header><br />
         <PrayerForm {...this.props} updateMessage={this.updateMessage} />
         <p>{this.state.message}</p>
         <img src={prayerHands} alt="hands praying" class="prayer-form-img" />

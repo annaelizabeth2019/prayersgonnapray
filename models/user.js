@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt'); 
 
 //this is enough salt for security 
 const SALT_ROUNDS = 6;
@@ -8,7 +8,9 @@ const SALT_ROUNDS = 6;
 const userSchema = new mongoose.Schema({
   name: String,
   email: {type: String, required: true, lowercase: true, unique: true},
-  password: String
+  password: String,
+  prayers: [{type: mongoose.Schema.Types.ObjectId,
+    ref: 'Prayer'}]
 }, {
   timestamps: true
 });

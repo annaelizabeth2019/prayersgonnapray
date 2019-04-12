@@ -5,12 +5,16 @@ import './PrayerForm.css'
 
 
 class PrayerRequest extends Component {
-
   state = {
     higherPower: '',
     text: '',
-    location: this.props.location
+    location: this.props.location,
+    user: ''
   };
+  componentDidMount() {
+    // const user = this.props;
+    this.setState({user: this.props.user});
+  }
 
   handleChange = (e) => {
     this.props.updateMessage('');
@@ -23,7 +27,7 @@ class PrayerRequest extends Component {
     e.preventDefault();
     try {
       await prayerService.create(this.state);
-      // Back to the main
+      // go to the board
       this.props.history.push('/prayerboard');
     } catch (err) {
       // Invalid user data
@@ -51,8 +55,8 @@ class PrayerRequest extends Component {
           </div>
           <div className="form-group">
             <div className="col-sm-12 text-center">
-              <button className="btn btn-large" disabled={this.isFormInvalid()}>Pray</button>&nbsp;&nbsp;
-              <Link to='/prayerboard' className="btn waves-light orange accent-3">Cancel</Link>
+              <button className="btn btn-large" disabled={this.isFormInvalid()}>Pray</button>&nbsp;&nbsp;<code className="center z-depth-3">send to t h e &nbsp; c l o u d</code>&nbsp;&nbsp;
+              <Link to='/prayerboard' className="btn waves-light orange accent-3 ">Cancel</Link>
             </div>
           </div>
         </form>

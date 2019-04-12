@@ -12,6 +12,7 @@ import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import WelcomePage from '../WelcomePage/WelcomePage'
 import PrayerRequest from '../PrayerRequest/PrayerRequest'
+import YourPrayers from '../YourPrayers/YourPrayers'
 
 //services
 import userService from '../../utils/userService';
@@ -69,6 +70,13 @@ class App extends Component {
             user={this.state.user}
           />
         }/>
+        <Route exact path='/yourprayers' render={({ history }) => 
+          <YourPrayers
+            history={history}
+            handleSignupOrLogin={this.handleSignupOrLogin}
+            user={this.state.user}
+          />
+        }/>
         <Route exact path='/signup' render={({ history }) => 
           <SignupPage
             history={history}
@@ -96,7 +104,6 @@ class App extends Component {
           userService.getUser() ?
           <PrayerRequest
             history={history}
-            handleSignupOrLogin={this.handleSignupOrLogin}
             user={this.state.user}
             location={this.state.location}
             />

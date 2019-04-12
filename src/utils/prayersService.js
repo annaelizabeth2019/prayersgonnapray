@@ -8,7 +8,6 @@ export default {
   };
   
 function index() {
-console.log(BASE_URL)
   const options = {
     method: 'GET',
     headers: {
@@ -25,8 +24,7 @@ function create(prayer) {
     method: 'POST',
     headers: {
       'Content-type': 'application/json',
-      // Add this header - don't forget the space after Bearer
-      // 'Authorization': 'Bearer ' + tokenService.getToken()
+      'Authorization': 'Bearer ' + tokenService.getToken()
     },
     body: JSON.stringify(prayer)
   };

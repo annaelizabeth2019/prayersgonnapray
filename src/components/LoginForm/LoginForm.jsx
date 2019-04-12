@@ -37,15 +37,15 @@ class LoginForm extends Component {
                 <div className="row">
                     <form className="col" onSubmit={this.handleSubmit} >
                     <div className="row">
-                        <div className="col input-field">
-                        <i class="material-icons prefix white-text">mail_outline</i>
-                        <input type="email" className="validate" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
+                        <div className="col input-field white-text">
+                        <i className="material-icons prefix white-text">mail_outline</i>
+                        <input type="email" className="validate white-text" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col input-field">
-                        <i class="material-icons prefix white-text">lock_outline</i>
-                        <input type="password" className="validate" placeholder="Password" value={this.state.pw} name="pw" onChange={this.handleChange} />
+                        <div className="col input-field white-text">
+                        <i className="material-icons prefix white-text">lock_outline</i>
+                        <input type="password" className="validate white-text" placeholder="Password" value={this.state.pw} name="pw" onChange={this.handleChange} />
                         </div>
                     </div>
                     <div className="row">
