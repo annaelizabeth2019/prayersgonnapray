@@ -6,8 +6,25 @@ const favicon = require('serve-favicon');
 const cors = require('cors');
 //Mount the morgan logging and body parsing middleware
 const logger = require('morgan');
-
 const app = express();
+
+
+//configure cors
+var whitelist = ['http://localhost:3000/', 'http://localhost:3000/*', 'http://localhost:3001/', 'https://prayersgonnapray.herokuapp.com']
+var corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1 || !origin) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
+
+app.options('/products/:id', cors()) // enable pre-flight request for DELETE request
+app.del('/products/:id', cors(), function (req, res, next) {
+  res.json({msg: 'This is CORS-enabled for all origins!'})
+})
 
 //require dotenv
 require('dotenv').config();
@@ -28,7 +45,7 @@ app.use(require('./config/auth'));
 app.use('/api/prayers', require('./routes/api/prayers'));
 
 //"Catch all" route
-app.get('/*', function(req, res) {
+app.get('/*', cors(corsOptions), function(req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
   });
 
@@ -37,3 +54,7 @@ const port = process.env.PORT || 3001;
 app.listen(port, function() {
   console.log(`Express app running on port ${port}`)
 });
+
+app.listen(80, function () {
+  console.log('CORS-enabled web server listening on port 80')
+})
