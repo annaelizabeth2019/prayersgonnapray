@@ -17,7 +17,8 @@ import YourPrayers from '../YourPrayers/YourPrayers'
 //services
 import userService from '../../utils/userService';
 import { getCurrentLatLng } from '../../utils/utilities'
-import prayersService from '../../utils/prayersService'
+import prayerService from '../../utils/prayerService'
+
 
 class App extends Component {
 
@@ -32,6 +33,7 @@ class App extends Component {
     return {
       location: { lat: null, lng: null },
       prayers: [],
+      prayerLocs: [],
       user: null
     };
   }
@@ -48,7 +50,7 @@ class App extends Component {
 
     handlePrayer = async (text, higherPower) => {
       try {
-        await prayersService.create({
+        await prayerService.create({
           text,
           higherPower,
           location: this.state.location,
@@ -78,7 +80,8 @@ class App extends Component {
     // await 
     //update state
     this.setState({ user, location: {lat, lng} });
-    // const prayers = await userService.myPrayers(this.state.user.email)
+    const prayerLocs = await prayerService.index()
+    console.log(prayerLocs);
     const prayers = this.state.user ? await userService.myPrayers(this.state.user.email) : [];
     this.setState({prayers}) 
   }

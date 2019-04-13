@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import  './PrayerBoard.css'
 import PrayerCard from '../PrayerCard/PrayerCard'
-import PrayerService from '../../utils/prayersService'
+import prayerService from '../../utils/prayerService'
 import Loading from '../../components/Loading/Loading'
 // import NavBar from '../../components/NavBar/NavBar'
 
@@ -12,7 +12,7 @@ class PrayerBoard extends Component {
     };
 
     async componentDidMount() {
-        const prayers = await PrayerService.index()
+        const prayers = await prayerService.index()
         this.setState({prayers: prayers})
         }
         render() {

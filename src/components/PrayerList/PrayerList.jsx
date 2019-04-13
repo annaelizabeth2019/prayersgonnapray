@@ -1,7 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './PrayerList.css';
-// import UserService from '../../utils/userService'
-// getMyPrayers
 
 const PrayerList = (props) => {
   return (

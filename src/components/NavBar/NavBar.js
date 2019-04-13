@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './NavBar.scss';
-import { logo2 } from '../../images/cloud.png'
+// import { logo2 } from '../../images/cloud.png'
 
 const NavBar = (props) => {
     let nav = props.user ?

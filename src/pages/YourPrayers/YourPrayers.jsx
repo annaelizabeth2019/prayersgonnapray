@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import styles from './YourPrayers.css'
+// import styles from './YourPrayers.css'
 import PrayerList from '../../components/PrayerList/PrayerList';
-import happyLittleCloud from '../../images/cloud.png'
 import headerImg from '../../images/sculpture.png'
 import Loading from '../../components/Loading/Loading'
 
