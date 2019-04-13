@@ -3,6 +3,7 @@ import styles from './YourPrayers.css'
 import PrayerList from '../../components/PrayerList/PrayerList';
 import happyLittleCloud from '../../images/cloud.png'
 import headerImg from '../../images/sculpture.png'
+import Loading from '../../components/Loading/Loading'
 
 class YourPrayers extends Component {
     render() {
@@ -32,7 +33,9 @@ class YourPrayers extends Component {
                         />
                     ): 
                     //This is what it says when the user doesn't have a prayer!
-                    <p>Please wait. Your prayers are being sent from t h e &nbsp; c l o u d</p>} 
+                    <div>
+                        <Loading />
+                    </div>} 
                         </tbody>
                     </table>
                 </div>

@@ -29,7 +29,7 @@ const NavBar = (props) => {
             {nav}
           </div>
           <div className="brand-logo right">
-            <Link to='/signup' className='brand-logo right'><img src="https://icon-rainbow.com/i/icon_04219/icon_042190_256.png" alt="a logo" className="navbar-img brand-logo right" /></Link>
+            <Link to='/' className='brand-logo right'><img src="https://icon-rainbow.com/i/icon_04219/icon_042190_256.png" alt="a logo" className="navbar-img brand-logo right" /></Link>
           </div>
         </div>
       

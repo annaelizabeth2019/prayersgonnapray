@@ -1,12 +1,12 @@
 body .PrayerBoard {
-    height: 100%;
+    min-width: 100%;
+    min-height: 200vh;
     background-color: black;
-    background-size: cover;
-    color: white;
-    display: flex;
-    flex-flow: row wrap;
+    /* background-size: cover; */
+    /* background-image: url('../../images/MeltingIceCreambyMathieuStPierre2.jpg') */
 }
 
-.prayer-card-container {
-    width: 10px;
+.PrayerBoard-container {
+    display: flex;
+    flex-flow: row wrap;
 }

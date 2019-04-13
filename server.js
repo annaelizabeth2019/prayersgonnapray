@@ -21,10 +21,10 @@ const app = express();
 //   }
 // }
 
-app.options('/products/:id', cors()) // enable pre-flight request for DELETE request
-app.del('/products/:id', cors(), function (req, res, next) {
-  res.json({msg: 'This is CORS-enabled for all origins!'})
-})
+// app.options('/products/:id', cors()) // enable pre-flight request for DELETE request
+// app.del('/products/:id', cors(), function (req, res, next) {
+//   res.json({msg: 'This is CORS-enabled for all origins!'})
+// })
 
 //require dotenv
 require('dotenv').config();
@@ -45,7 +45,7 @@ app.use(require('./config/auth'));
 app.use('/api/prayers', require('./routes/api/prayers'));
 
 //"Catch all" route
-app.get('/*', cors(corsOptions), function(req, res) {
+app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
   });
 

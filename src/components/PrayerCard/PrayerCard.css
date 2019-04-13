@@ -1,5 +1,8 @@
 .PrayerCard {
     margin: 1em;
     width: 30vmax;
+}
 
+.img-small {
+    max-width: 25%;
 }
