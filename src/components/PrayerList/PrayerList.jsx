@@ -8,7 +8,7 @@ const PrayerList = (props) => {
     <tr>
       <td>TIME O'CLOCK</td>
       <td>{props.higherPower}</td>
-      <td>{props.text}</td>
+      <td className="truncate">{props.text}</td>
     </tr>
   )
 }

@@ -61,8 +61,6 @@ function myPrayers(userEmail) {
   })
   .then(res => {
     if (res.ok) return res.json();
-    console.log('is this working at all?')
-    // throw new Error('Bad Credentials!');
   })
   .catch(error => {
     console.log(error)

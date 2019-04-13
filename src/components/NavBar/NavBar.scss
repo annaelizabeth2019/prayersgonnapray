@@ -1,9 +1,10 @@
 .NavBar {
   display: flex;
   flex-flow: row nowrap;
-  background-color: darkslateblue;
+  background-color: #000;
   color: white;
   align-items: center;
+  font-family: 'Roboto', cursive;
 }
 
 .NavBar-welcome {
@@ -12,4 +13,9 @@
 
 .NavBar a {
   color: pink;
+}
+
+.navbar-img {
+  height: 4em;
+  padding: 2vh;
 }

@@ -2,17 +2,19 @@ import React, { Component } from 'react';
 import styles from './YourPrayers.css'
 import PrayerList from '../../components/PrayerList/PrayerList';
 import happyLittleCloud from '../../images/cloud.png'
+import headerImg from '../../images/sculpture.png'
 
 class YourPrayers extends Component {
     render() {
         return (
-            <div className="YourPrayers">
-                <div className="container row">
+            <div className="YourPrayers flex-column">
+                <div className="container row ">
+                <div className="col s8 prayer-table z-depth-6">
                 <header>
-                    <h1>Your Prayers!</h1>
+                    <h4>YOUR &nbsp; P R A Y E R S</h4>
+                    {/* <img src={headerImg} alt="" class="your-prayers-header" /> */}
                 </header>
-                <div className="col s6">
-                    <table>
+                    <table className="highlight">
                         <thead>
                             <tr>
                                 <th>Time</th>
@@ -30,12 +32,12 @@ class YourPrayers extends Component {
                         />
                     ): 
                     //This is what it says when the user doesn't have a prayer!
-                    <p>no prayers</p>} 
+                    <p>Please wait. Your prayers are being sent from t h e &nbsp; c l o u d</p>} 
                         </tbody>
                     </table>
                 </div>
-                <div className="col s6">
-                    <img src={ happyLittleCloud } alt="a happy little pink cloud" className="user-dash-cloud"  />    
+                <div className="col s4">
+                    <img src={ headerImg } alt="a happy little pink cloud" className="user-dash-cloud z-depth-3 hide-on-small-only"  />    
                 </div>
             </div>
                 {/* 

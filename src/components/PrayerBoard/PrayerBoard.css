@@ -3,6 +3,8 @@ body .PrayerBoard {
     background-color: black;
     background-size: cover;
     color: white;
+    display: flex;
+    flex-flow: row wrap;
 }
 
 .prayer-card-container {
