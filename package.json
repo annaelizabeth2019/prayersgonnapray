@@ -36,6 +36,14 @@
     "not op_mini all"
   ],
   "proxy": "http://localhost:3001",
+  "description": "Prayers gonna pray is an app for praying to any higher power you like",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/annaelizabeth2019/prayersgonnapray"
+  },
+  "author": "Anna Peterson",
   "engines": {
     "node": "11.7.0",
     "npm": "6.9.0"
