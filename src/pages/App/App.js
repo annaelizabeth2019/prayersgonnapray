@@ -80,10 +80,11 @@ class App extends Component {
     // await 
     //update state
     this.setState({ user, location: {lat, lng} });
-    const prayerLocs = await prayerService.index()
-    console.log(prayerLocs);
+    let prayerLocs = []
+    await prayerService.index().then(objs => objs.map(obj => prayerLocs.push(obj.location)))
+    console.log('this is prayerLocs', prayerLocs);
     const prayers = this.state.user ? await userService.myPrayers(this.state.user.email) : [];
-    this.setState({prayers}) 
+    this.setState({prayers, prayerLocs})
   }
 
   render() {
@@ -98,6 +99,7 @@ class App extends Component {
           <WelcomePage
             history={history}
             user={this.state.user}
+            locs={this.state.prayerLocs}
           />
         }/>
         <Route exact path='/yourprayers' render={({ history }) => 

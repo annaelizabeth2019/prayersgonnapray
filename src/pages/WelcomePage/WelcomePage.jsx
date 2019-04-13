@@ -21,7 +21,7 @@ class WelcomePage extends Component {
                     </p>
                 </div>
                 </header>
-                <MapContainer />
+                {/* <MapContainer markers={this.props.locs} /> */}
             </div>
             );
         }

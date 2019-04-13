@@ -10,13 +10,9 @@ export default {
 function index() {
   const options = {
     method: 'GET',
-    headers: {
-      'Content-type': 'application/json',
-      'Authorization': 'Bearer ' + tokenService.getToken(),
-    }
+    headers: new Headers({'Content-Type': 'application/json'}),
   };
-    return fetch(BASE_URL, options).then(res => res.json());
-
+    return fetch(BASE_URL, options).then(res => res.json()).catch(err => console.log(err));
 }
 
 
