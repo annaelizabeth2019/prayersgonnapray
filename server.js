@@ -10,16 +10,16 @@ const app = express();
 
 
 //configure cors
-var whitelist = ['http://localhost:3000/', 'http://localhost:3000/*', 'http://localhost:3001/', 'https://prayersgonnapray.herokuapp.com']
-var corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1 || !origin) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }
-  }
-}
+// var whitelist = ['http://localhost:3000/', 'http://localhost:3000/*', 'http://localhost:3001/', 'https://prayersgonnapray.herokuapp.com']
+// var corsOptions = {
+//   origin: function (origin, callback) {
+//     if (whitelist.indexOf(origin) !== -1 || !origin) {
+//       callback(null, true)
+//     } else {
+//       callback(new Error('Not allowed by CORS'))
+//     }
+//   }
+// }
 
 app.options('/products/:id', cors()) // enable pre-flight request for DELETE request
 app.del('/products/:id', cors(), function (req, res, next) {
@@ -55,6 +55,6 @@ app.listen(port, function() {
   console.log(`Express app running on port ${port}`)
 });
 
-app.listen(80, function () {
-  console.log('CORS-enabled web server listening on port 80')
-})
+// app.listen(80, function () {
+//   console.log('CORS-enabled web server listening on port 80')
+// })
