@@ -26,6 +26,7 @@ class PrayerBoard extends Component {
                             text={prayer.text}
                             location={prayer.location}
                             higherPower={prayer.higherPower}
+                            date={Date(prayer.createdAt)}
                             />
                         )}
                         </div> 

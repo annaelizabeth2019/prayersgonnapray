@@ -10,8 +10,13 @@ const PrayerCard = (props) => (
         </div>
         <div className="card-reveal black white-text">
             <span className="card-title">{props.text}<i className="material-icons right">close</i></span>
-        <p>This prayer was sent to:<br />
-        {props.higherPower}</p>
+            <table>
+                <tbody>
+                    <th className="center">This prayer was sent to:</th>
+                    <tr className="center">{props.higherPower}</tr>
+                    <tr>{props.date.substring(0,15)}</tr>
+                </tbody>
+            </table>
         </div>
     </div>
 );

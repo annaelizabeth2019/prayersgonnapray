@@ -1,7 +1,8 @@
 .PrayerCard {
     margin: 1em;
     width: 30vmax;
-    background-color: rgba(203, 253, 241, .5)
+    background-color: rgba(203, 253, 241, .5);
+    font-family: 'Roboto', cursive;
 }
 
 .ema:hover {
