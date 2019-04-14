@@ -61,14 +61,6 @@ class App extends Component {
       } 
     }
 
-    // getMyPrayers = async () => {
-    //   try {
-    //     await userService.myPrayers(this.state.user.email)
-    //   } catch (err) {
-    //     console.log('This is an err in getMyprayers from app.js', err)
-    //   }
-    // }
-
     /*--- Lifecycle Methods ---*/
 
   async componentDidMount() {
@@ -76,13 +68,10 @@ class App extends Component {
     const {lat, lng} = await getCurrentLatLng();
     //get user
     const user = await userService.getUser();
-    // console.log(this.user.email)
-    // await 
     //update state
     this.setState({ user, location: {lat, lng} });
     let prayerLocs = []
-    await prayerService.index().then(objs => objs.map(obj => prayerLocs.push(obj.location)))
-    console.log('this is prayerLocs', prayerLocs);
+    await prayerService.index().then(objs => objs.map(obj => obj.location.lat ? prayerLocs.push(obj.location) : prayerLocs.push({lat: 35.652832, lng: 139.6503})))
     const prayers = this.state.user ? await userService.myPrayers(this.state.user.email) : [];
     this.setState({prayers, prayerLocs})
   }
@@ -99,7 +88,7 @@ class App extends Component {
           <WelcomePage
             history={history}
             user={this.state.user}
-            locs={this.state.prayerLocs}
+            markers={this.state.prayerLocs}
           />
         }/>
         <Route exact path='/yourprayers' render={({ history }) => 
@@ -114,6 +103,7 @@ class App extends Component {
           <SignupPage
             history={history}
             user={this.state.user}
+            handleSignupOrLogin={this.handleSignupOrLogin}
           />
         }/>
         <Route exact path='/login' render={({ history }) => 

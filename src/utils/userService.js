@@ -13,7 +13,8 @@ function signup(user) {
     // to handle a duplicate email
     throw new Error('Email already taken!');
   })
-  .then(({token}) => token);
+  .then((token) => token.token);
+  //don't catch this err. It needs to be returned to the user. 
 }
 
 function getUser() {

@@ -4,6 +4,7 @@ import PrayerList from '../../components/PrayerList/PrayerList';
 import headerImg from '../../images/sculpture.png'
 import Loading from '../../components/Loading/Loading'
 import GlitchBtn from '../../components/GlitchBtn/GlitchBtn'
+import Map from '../../components/Map/Map'
 
 class YourPrayers extends Component {
     render() {
@@ -45,16 +46,18 @@ class YourPrayers extends Component {
                 </div>
             </div>
             <div className="row center">
-                {/* <div className="col s12"></div> */}
                 <p>Perhaps you would like to </p><GlitchBtn link="prayerrequest"
                 text="PRAY!" />
             </div>
+            <div className="row">
+                        
+            </div>
                 {/* 
                 - an anchor scroll
-
-                - a component that renders a map of my prayers
-
                 - STATS!? */}
+                <Map 
+                    markers={this.props.prayers.location}
+                />
                 
             </div>
             );

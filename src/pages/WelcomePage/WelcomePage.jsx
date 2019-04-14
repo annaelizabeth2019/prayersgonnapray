@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './WelcomePage.scss';
 import logo from '../../images/ezgif.com-crop.gif';
 //the map
-// import MapContainer from '../../components/Map/Map'
+import MapContainer from '../../components/Map/Map'
 
 class WelcomePage extends Component {
     render() {
@@ -21,7 +21,7 @@ class WelcomePage extends Component {
                     </p>
                 </div>
                 </header>
-                {/* <MapContainer markers={this.props.locs} /> */}
+                <MapContainer markers={this.props.markers} />
             </div>
             );
         }

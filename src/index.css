@@ -4,10 +4,6 @@ html {
   width: 100%;
 }
 
-button:hover{
-  animation: shake 0.5s;
-}
-
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

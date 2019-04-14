@@ -17,6 +17,7 @@ module.exports = {
     } catch (err) {
       // For duplicate emails
       res.status(400).json(err);
+      console.log('An error in the controller sign up!', err)
     }
   }
   
@@ -42,11 +43,7 @@ async function getMyPrayers(req, res) {
   try{
     const prayers = await User.find({email: req.body.userEmail})
       .populate('prayers').then(res => {let userOb = res[0]; return userOb}).then(res => {return res.prayers})
-      // .exec((err, prayer) => {let p = prayer[0]; p.prayers});
-      // const userPrayers = user[0]
-      // const prayers = userPrayers.prayers
       res.json(prayers);
-      // console.log('This is prayer', prayers);
   } catch (err) {
     console.log('An err in controller!', err)
   }

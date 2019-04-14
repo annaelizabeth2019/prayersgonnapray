@@ -10,7 +10,7 @@ router.post('/login', usersCtrl.login);
 
 
 /*---------- Protected Routes ----------*/
-router.post('/yourprayers', usersCtrl.getMyPrayers);
+router.post('/yourprayers', checkAuth, usersCtrl.getMyPrayers);
 
 /*----- Helper Functions ------*/
 function checkAuth(req, res, next) {

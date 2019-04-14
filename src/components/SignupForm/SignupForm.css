@@ -6,6 +6,10 @@
     color: white;
 }
 
+input .SignupForm {
+    color: white;
+}
+
 .SignupPageHeader {
     font-family: 'Roboto', cursive;
     font-weight: 800;
