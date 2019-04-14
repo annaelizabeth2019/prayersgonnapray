@@ -1,26 +1,26 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './NavBar.scss';
 // import { logo2 } from '../../images/cloud.png'
 
 const NavBar = (props) => {
     let nav = props.user ?
       <div className="left">
-          <Link to='/yourprayers' className='NavBar-link'>Your p r a y e r s</Link>
+          <NavLink to='/yourprayers' className='NavBar-link'>Your p r a y e r s</NavLink>
           &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-          <Link to='/prayerrequest' className='NavBar-link'>Prayer Request</Link>
+          <NavLink to='/prayerrequest' className='NavBar-link'>Prayer Request</NavLink>
           &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-          <Link to='/PrayerBoard' className='NavBar-link'>Prayer Board</Link>
+          <NavLink to='/PrayerBoard' className='NavBar-link'>Prayer Board</NavLink>
           &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-          <Link to='' className='NavBar-link' onClick={props.handleLogout}>LOG OUT</Link>
+          <NavLink to='' className='NavBar-link' onClick={props.handleLogout}>LOG OUT</NavLink>
           &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
           <div className='NavBar-welcome'>W E L C O M E , {props.user.name}</div>
         </div>
         :
         <div className="left">
-          <Link to='/login' className='NavBar-link'>LOG IN</Link>
+          <NavLink to='/login' className='NavBar-link'>LOG IN</NavLink>
           &nbsp;&nbsp;|&nbsp;&nbsp;
-          <Link to='/signup' className='NavBar-link'>SIGN UP</Link>
+          <NavLink to='/signup' className='NavBar-link'>SIGN UP</NavLink>
         </div>;
         
       return (
@@ -29,7 +29,7 @@ const NavBar = (props) => {
             {nav}
           </div>
           <div className="brand-logo right">
-            <Link to='/' className='brand-logo right'><img src="https://icon-rainbow.com/i/icon_04219/icon_042190_256.png" alt="a logo" className="navbar-img brand-logo right" /></Link>
+            <NavLink to='/' className='brand-logo right'><img src="https://icon-rainbow.com/i/icon_04219/icon_042190_256.png" alt="a logo" className="navbar-img brand-logo right" /></NavLink>
           </div>
         </div>
       

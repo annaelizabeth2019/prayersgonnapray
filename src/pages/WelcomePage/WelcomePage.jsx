@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './WelcomePage.scss';
 import logo from '../../images/ezgif.com-crop.gif';
 //the map
-import MapContainer from '../../components/Map/Map'
+// import MapContainer from '../../components/Map/Map'
 
 class WelcomePage extends Component {
     render() {

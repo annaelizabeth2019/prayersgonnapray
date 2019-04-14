@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import userService from '../../utils/userService';
+import './SignupForm.css';
 
 class SignupForm extends Component {
 
@@ -37,9 +38,9 @@ class SignupForm extends Component {
 
   render() {
     return (
-      <div>
-        <header className="header-footer">Sign Up</header>
-        <form className="form-horizontal" onSubmit={this.handleSubmit} >
+      <div className="LoginForm flex-column z-depth-5">
+        <header className="header-footer LoginPageHeader"><h1>S I G N &nbsp; U P</h1></header>
+        <form className=" LoginPageHeader" onSubmit={this.handleSubmit} >
           <div className="form-group">
             <div className="col-sm-12">
               <input type="text" className="form-control" placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange} />

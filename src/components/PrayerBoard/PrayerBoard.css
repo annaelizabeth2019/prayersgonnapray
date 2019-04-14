@@ -2,8 +2,6 @@ body .PrayerBoard {
     min-width: 100%;
     min-height: 200vh;
     background-color: black;
-    /* background-size: cover; */
-    /* background-image: url('../../images/MeltingIceCreambyMathieuStPierre2.jpg') */
 }
 
 .PrayerBoard-container {

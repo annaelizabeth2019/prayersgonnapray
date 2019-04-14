@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SignupForm from '../../components/SignupForm/SignupForm';
-import './SignupPage.scss';
+import '../SignupPage/SignupPage.css';
 
 class SignupPage extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class SignupPage extends Component {
 
   render() {
     return (
-      <div className='SignupPage'>
+      <div className='SignupPage flex-column'>
         <SignupForm {...this.props} updateMessage={this.updateMessage} />
         <p>{this.state.message}</p>
       </div>

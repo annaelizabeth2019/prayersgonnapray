@@ -1,0 +1,8 @@
+body .LoginPage {
+    height: 100vmin;
+    background-image: url('../../images/MeltingIceCreambyMathieuStPierre2.jpg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+ }

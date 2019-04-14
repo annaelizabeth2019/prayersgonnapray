@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-// import styles from './YourPrayers.css'
+import './YourPrayers.css'
 import PrayerList from '../../components/PrayerList/PrayerList';
 import headerImg from '../../images/sculpture.png'
 import Loading from '../../components/Loading/Loading'
+import GlitchBtn from '../../components/GlitchBtn/GlitchBtn'
 
 class YourPrayers extends Component {
     render() {
         return (
             <div className="YourPrayers flex-column">
-                <div className="container row ">
+                <div className="container row">
                 <div className="col s8 prayer-table z-depth-6">
                 <header>
                     <h4>YOUR &nbsp; P R A Y E R S</h4>
@@ -39,9 +40,10 @@ class YourPrayers extends Component {
                     </table>
                 </div>
                 <div className="col s4">
-                    <img src={ headerImg } alt="a happy little pink cloud" className="user-dash-cloud z-depth-3 hide-on-small-only"  />    
+                    <img src={ headerImg } alt="a sculpture of a holy woman" className="user-dash-pic right hide-on-small-only"  />    
                 </div>
             </div>
+                <p>Perhaps you would like to </p><GlitchBtn link="'/prayerrequest'"/>
                 {/* 
                 - an anchor scroll
 

@@ -37,19 +37,7 @@ function login(creds) {
   .then(({token}) => tokenService.setToken(token));
 }
 
-// function myPrayers(userEmail) {
-//   const options = {
-//     method: 'GET',
-//     headers: {
-//       'Content-type': 'application/json',
-//       'Authorization': 'Bearer ' + tokenService.getToken(),
-//     }
-//   };
-//   console.log('this is options', options)
-//     return fetch(BASE_URL + 'yourprayers', options);
-// }
-
-
+//get a user's prayers
 function myPrayers(userEmail) {
   return fetch(BASE_URL + 'yourprayers', {
     method: 'POST',

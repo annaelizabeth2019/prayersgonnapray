@@ -7,11 +7,13 @@ body .YourPrayers {
     background-size: cover;
     font-family: 'Roboto', cursive;
     display: flex;
+    
 }
 
 .YourPrayers {
     display: flex;
-    align-items: center;
+    /* align-items: center; */
+    /* justify-content: space-between; */
 }
 
 .prayer-table {
@@ -21,6 +23,6 @@ body .YourPrayers {
     border: 2px solid rgb(225	195	224	);
 }
 
-.user-dash-cloud {
+.user-dash-pic {
     width: 90%;
 }

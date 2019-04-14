@@ -1,0 +1,13 @@
+.SignupForm {
+    background-color: black;
+    width: 90vh;
+    padding: 3vmin;
+    align-items: center;
+    color: white;
+}
+
+.SignupPageHeader {
+    font-family: 'Roboto', cursive;
+    font-weight: 800;
+    text-transform: uppercase;
+ }
