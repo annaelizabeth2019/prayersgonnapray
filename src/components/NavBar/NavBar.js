@@ -6,11 +6,11 @@ import './NavBar.scss';
 const NavBar = (props) => {
     let nav = props.user ?
       <div className="left">
-          <NavLink to='/yourprayers' className='NavBar-link'>Your p r a y e r s</NavLink>
+          <NavLink to='/yourprayers' className='NavBar-link' activeClassName="selected">Your p r a y e r s</NavLink>
           &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-          <NavLink to='/prayerrequest' className='NavBar-link'>Prayer Request</NavLink>
+          <NavLink to='/prayerrequest' className='NavBar-link' activeClassName="selected">Prayer Request</NavLink>
           &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-          <NavLink to='/PrayerBoard' className='NavBar-link'>Prayer Board</NavLink>
+          <NavLink to='/PrayerBoard' className='NavBar-link' activeClassName="selected">Prayer Board</NavLink>
           &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
           <NavLink to='' className='NavBar-link' onClick={props.handleLogout}>LOG OUT</NavLink>
           &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -18,9 +18,9 @@ const NavBar = (props) => {
         </div>
         :
         <div className="left">
-          <NavLink to='/login' className='NavBar-link'>LOG IN</NavLink>
+          <NavLink to='/login' className='NavBar-link' activeClassName="selected">LOG IN</NavLink>
           &nbsp;&nbsp;|&nbsp;&nbsp;
-          <NavLink to='/signup' className='NavBar-link'>SIGN UP</NavLink>
+          <NavLink to='/signup' className='NavBar-link' activeClassName="selected">SIGN UP</NavLink>
         </div>;
         
       return (
@@ -29,6 +29,7 @@ const NavBar = (props) => {
             {nav}
           </div>
           <div className="brand-logo right">
+          
             <NavLink to='/' className='brand-logo right'><img src="https://icon-rainbow.com/i/icon_04219/icon_042190_256.png" alt="a logo" className="navbar-img brand-logo right" /></NavLink>
           </div>
         </div>

@@ -5,8 +5,19 @@ import headerImg from '../../images/sculpture.png'
 import Loading from '../../components/Loading/Loading'
 import GlitchBtn from '../../components/GlitchBtn/GlitchBtn'
 import MapContainer from '../../components/Map/Map'
+import prayerService from '../../utils/prayerService'
 
 class YourPrayers extends Component {
+
+    // state = {
+    //     prayers: []
+    // };
+
+    // async componentDidMount() {
+    //     const prayers = await prayerService.()
+    //     this.setState({prayers: prayers})
+    //     }
+
     render() {
         return (
             <div className="YourPrayers">
@@ -14,8 +25,7 @@ class YourPrayers extends Component {
                 <div className="col col s12 m9 prayer-table z-depth-6 YP-container">
                 <header>
                     <h4>YOUR &nbsp; P R A Y E R S</h4>
-                </header>
-                {this.props.prayers ? 
+                </header> 
                     <table className="highlight">
                         <thead>
                             <tr>
@@ -25,7 +35,7 @@ class YourPrayers extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                    {this.props.prayers.length >= 1 ? this.props.prayers.map((prayer, idx) => 
+                    {this.props.prayers && this.props.prayers.length >= 1 ? this.props.prayers.map((prayer, idx) => 
                         //This will make a table of prayers. It takes a moment to load
                         <PrayerList 
                         higherPower={prayer.higherPower}
@@ -34,15 +44,15 @@ class YourPrayers extends Component {
                         idx={idx}
                         />
                     ): 
-                    //This is what it says when the user doesn't have a prayer!
+                    //This is what it says when the user doesn't have a prayer.
                     <div>
                         <Loading />
                     </div>} 
                         </tbody>
                     </table>
                 
-            : <p> you have no prayers yet. </p>
-                }
+            <p> you have no prayers yet. </p>
+                
                 </div>
                 <div className="col s3 YP-container right">
                     <img src={ headerImg } alt="a sculpture of a holy woman" className="user-dash-pic responsive-img hide-on-small-only"  />    
@@ -53,13 +63,11 @@ class YourPrayers extends Component {
                 text="PRAY!" />
             </div>
             <div className="row">
-            //check that a prayer has prayers and that there are locations
-                {this.props.prayers && this.props.prayers.location ? 
+                {this.props.prayers ? 
                 //the map component       
                     <MapContainer 
-                    markers={this.props.prayers.location}
-                    /> : 
-                    //wah wah
+                    markers={this.props.prayers.map(prayer => prayer.location)}
+                    /> :
                     <p>No Prayer locations</p>
                 }  
             </div>

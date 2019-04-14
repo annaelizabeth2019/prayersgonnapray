@@ -10,7 +10,7 @@ export class MapContainer extends React.Component {
     }
     return (
       <div>
-        <Map 
+        <Map
           google={this.props.google} 
           zoom={3}
           initialCenter={{

@@ -70,10 +70,11 @@ class App extends Component {
     const user = await userService.getUser();
     //update state
     this.setState({ user, location: {lat, lng} });
+    const prayers = this.state.user ? await userService.myPrayers(this.state.user.email).catch(err => console.log(err)) : [];
+    this.setState({prayers})
     let prayerLocs = []
     await prayerService.index().then(objs => objs.map(obj => obj.location.lat ? prayerLocs.push(obj.location) : prayerLocs.push({lat: 35.652832, lng: 139.6503})))
-    const prayers = this.state.user ? await userService.myPrayers(this.state.user.email) : [];
-    this.setState({prayers, prayerLocs})
+    this.setState({prayerLocs});
   }
 
   render() {
@@ -95,7 +96,6 @@ class App extends Component {
           <YourPrayers
             history={history}
             user={this.state.user}
-            // getMyPrayers={this.getMyPrayers}
             prayers={this.state.prayers}
           />
         }/>
@@ -118,8 +118,6 @@ class App extends Component {
             history={history}
             user={this.state.user}
             location={this.state.location}
-            // prayers={this.state.prayers}
-
           />
           }/>
         <Route exact path='/PrayerRequest' render={({ history }) => (

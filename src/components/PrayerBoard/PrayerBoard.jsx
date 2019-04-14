@@ -3,7 +3,6 @@ import  './PrayerBoard.css'
 import PrayerCard from '../PrayerCard/PrayerCard'
 import prayerService from '../../utils/prayerService'
 import Loading from '../../components/Loading/Loading'
-// import NavBar from '../../components/NavBar/NavBar'
 
 class PrayerBoard extends Component {
 
