@@ -8,9 +8,9 @@ import GlitchBtn from '../../components/GlitchBtn/GlitchBtn'
 class YourPrayers extends Component {
     render() {
         return (
-            <div className="YourPrayers flex-column">
-                <div className="container row">
-                <div className="col s8 prayer-table z-depth-6">
+            <div className="YourPrayers">
+                <div className=" row ">
+                <div className="col col s12 m9 prayer-table z-depth-6 YP-container">
                 <header>
                     <h4>YOUR &nbsp; P R A Y E R S</h4>
                     {/* <img src={headerImg} alt="" class="your-prayers-header" /> */}
@@ -24,12 +24,13 @@ class YourPrayers extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                    {this.props.prayers.length > 1 ? this.props.prayers.map((prayer, idx) => 
+                    {this.props.prayers.length >= 1 ? this.props.prayers.map((prayer, idx) => 
                         //This will make a table of prayers. It takes a moment to load
                         <PrayerList 
                         higherPower={prayer.higherPower}
                         text={prayer.text}
-                        isx={idx}
+                        date={Date(prayer.createdAt)}
+                        idx={idx}
                         />
                     ): 
                     //This is what it says when the user doesn't have a prayer!
@@ -39,11 +40,15 @@ class YourPrayers extends Component {
                         </tbody>
                     </table>
                 </div>
-                <div className="col s4">
-                    <img src={ headerImg } alt="a sculpture of a holy woman" className="user-dash-pic right hide-on-small-only"  />    
+                <div className="col s3 YP-container right">
+                    <img src={ headerImg } alt="a sculpture of a holy woman" className="user-dash-pic responsive-img hide-on-small-only"  />    
                 </div>
             </div>
-                <p>Perhaps you would like to </p><GlitchBtn link="'/prayerrequest'"/>
+            <div className="row center">
+                {/* <div className="col s12"></div> */}
+                <p>Perhaps you would like to </p><GlitchBtn link="prayerrequest"
+                text="PRAY!" />
+            </div>
                 {/* 
                 - an anchor scroll
 

@@ -1,4 +1,36 @@
 
-// button:hover{
-
-// }
+a.GlitchBtn{
+    display:inline-block;
+    padding:0.5em 1.5em;
+    border:0.1em solid #fff;
+    margin:0 0.3em 0.3em 0;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:#fff;
+    text-align:center;
+    transition: all 0.2s;
+}
+a.GlitchBtn:hover{
+    color: #fff;
+    // background-color: rgba(74, 208, 222, .5);
+    background-image: url('https://thumbs.gfycat.com/YellowBoldLaughingthrush-small.gif');
+    animation: shake 0.82s cubic-bezier(.36,.1,.19,2.5) both;
+}
+  
+  @keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+  
+    40%, 60% {
+      transform: translate3d(4px, 0, 0);
+    }
+  }

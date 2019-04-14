@@ -9,8 +9,9 @@ const PrayerCard = (props) => (
             <span className="card-title activator grey-text text-darken-4 truncate">{props.text}<i className="material-icons right">arrow_drop_up</i></span>
         </div>
         <div className="card-reveal">
-            <span className="card-title grey-text text-darken-4">This Prayer Was Sent To<i className="material-icons right">close</i></span>
-        <p>{props.higherPower}</p>
+            <span className="card-title grey-text text-darken-4">{props.text}<i className="material-icons right">close</i></span>
+        <p>This prayer was sent to:<br />
+        {props.higherPower}</p>
         </div>
     </div>
 );

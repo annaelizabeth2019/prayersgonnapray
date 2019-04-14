@@ -1,19 +1,18 @@
 body .YourPrayers {
-    height: 100vh;
+    min-height: 200vh;
     background-color: black;
     background-image: url('../../images/blackstar.jpg');
     font-weight: 800;
     color: rgb(225	195	224	);
     background-size: cover;
     font-family: 'Roboto', cursive;
-    display: flex;
+    /* display: flex; */
+    /* flex-flow: row wrap; */
     
 }
 
-.YourPrayers {
-    display: flex;
-    /* align-items: center; */
-    /* justify-content: space-between; */
+.YP-container {
+   margin: 2em 0;
 }
 
 .prayer-table {
@@ -23,6 +22,6 @@ body .YourPrayers {
     border: 2px solid rgb(225	195	224	);
 }
 
-.user-dash-pic {
+/* .user-dash-pic {
     width: 90%;
-}
+} */

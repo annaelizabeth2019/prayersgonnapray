@@ -20,7 +20,7 @@ class PrayerRequest extends Component {
         <header className="header-footer center"><h3>Prayer Request</h3></header><br />
         <PrayerForm {...this.props} updateMessage={this.updateMessage} />
         <p>{this.state.message}</p>
-        <img src={prayerHands} alt="hands praying" class="prayer-form-img" />
+        <img src={prayerHands} alt="hands praying" className="prayer-form-img" />
       </div>
     );
   }

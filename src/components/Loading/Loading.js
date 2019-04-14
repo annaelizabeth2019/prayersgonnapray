@@ -7,7 +7,7 @@ const Loading = (props) =>{
         <div className="noPrayers flex-column center">
             <code>Prayers ar Being Fetched From the Cloud. Please Wait or try praying.</code>
             <br /><img src={loading} alt="Blocks boucing around" className="img-small" /><br />
-            <code>if you are not automatically redirected please consult your nearest <br />s p i r i t u a l &nbsp; l e a d e r .</code>
+            <code>if nothing comes to you, <br />s p i r i t u a l &nbsp; l e a d e r .</code>
         </div>
     )
 }

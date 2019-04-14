@@ -6,9 +6,7 @@ const GlitchBtn = (props) => {
     return (
         <div className="GlitchBtn">
             <Link to={props.link} className="GlitchBtn" data-text="PRAY!">
-                <button>
-                    PRAY!
-                </button>
+                {props.text}
             </Link>
         </div>
     )

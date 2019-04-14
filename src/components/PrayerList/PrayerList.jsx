@@ -4,9 +4,9 @@ import './PrayerList.css';
 const PrayerList = (props) => {
   return (
     <tr>
-      <td>TIME O'CLOCK</td>
+      <td>{props.date.substring(0,15)}</td>
       <td>{props.higherPower}</td>
-      <td className="truncate">{props.text}</td>
+      <td><div ClassName="truncate">{props.text}</div></td>
     </tr>
   )
 }
