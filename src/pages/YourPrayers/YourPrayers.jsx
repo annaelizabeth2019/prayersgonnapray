@@ -4,7 +4,7 @@ import PrayerList from '../../components/PrayerList/PrayerList';
 import headerImg from '../../images/sculpture.png'
 import Loading from '../../components/Loading/Loading'
 import GlitchBtn from '../../components/GlitchBtn/GlitchBtn'
-import Map from '../../components/Map/Map'
+import MapContainer from '../../components/Map/Map'
 
 class YourPrayers extends Component {
     render() {
@@ -14,8 +14,8 @@ class YourPrayers extends Component {
                 <div className="col col s12 m9 prayer-table z-depth-6 YP-container">
                 <header>
                     <h4>YOUR &nbsp; P R A Y E R S</h4>
-                    {/* <img src={headerImg} alt="" class="your-prayers-header" /> */}
                 </header>
+                {this.props.prayers ? 
                     <table className="highlight">
                         <thead>
                             <tr>
@@ -40,6 +40,9 @@ class YourPrayers extends Component {
                     </div>} 
                         </tbody>
                     </table>
+                
+            : <p> you have no prayers yet. </p>
+                }
                 </div>
                 <div className="col s3 YP-container right">
                     <img src={ headerImg } alt="a sculpture of a holy woman" className="user-dash-pic responsive-img hide-on-small-only"  />    
@@ -50,14 +53,19 @@ class YourPrayers extends Component {
                 text="PRAY!" />
             </div>
             <div className="row">
-                        
+            //check that a prayer has prayers and that there are locations
+                {this.props.prayers && this.props.prayers.location ? 
+                //the map component       
+                    <MapContainer 
+                    markers={this.props.prayers.location}
+                    /> : 
+                    //wah wah
+                    <p>No Prayer locations</p>
+                }  
             </div>
                 {/* 
                 - an anchor scroll
                 - STATS!? */}
-                <Map 
-                    markers={this.props.prayers.location}
-                />
                 
             </div>
             );
