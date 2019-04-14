@@ -1,5 +1,12 @@
 .PrayerCard {
     margin: 1em;
     width: 30vmax;
+    background-color: rgba(203, 253, 241, .5)
 }
+
+.ema:hover {
+    background-image: url('https://i.gifer.com/MQ4e.gif')
+}
+
+
 

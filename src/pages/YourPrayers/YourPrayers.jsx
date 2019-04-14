@@ -23,9 +23,9 @@ class YourPrayers extends Component {
             <div className="YourPrayers">
                 <div className=" row ">
                 <div className="col col s12 m9 prayer-table z-depth-6 YP-container">
-                <header>
-                    <h4>YOUR &nbsp; P R A Y E R S</h4>
-                </header> 
+                    <header>
+                        <h4>YOUR &nbsp; P R A Y E R S</h4>
+                    </header> 
                     <table className="highlight">
                         <thead>
                             <tr>
@@ -50,9 +50,6 @@ class YourPrayers extends Component {
                     </div>} 
                         </tbody>
                     </table>
-                
-            <p> you have no prayers yet. </p>
-                
                 </div>
                 <div className="col s3 YP-container right">
                     <img src={ headerImg } alt="a sculpture of a holy woman" className="user-dash-pic responsive-img hide-on-small-only"  />    

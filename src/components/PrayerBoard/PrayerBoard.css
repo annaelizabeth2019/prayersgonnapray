@@ -1,7 +1,8 @@
 body .PrayerBoard {
     min-width: 100%;
-    min-height: 200vh;
-    background-color: black;
+    min-height: 100vh;
+    background-image: url('https://images2.alphacoders.com/964/964425.jpg');
+    background-size: cover;
 }
 
 .PrayerBoard-container {
