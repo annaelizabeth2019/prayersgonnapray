@@ -10,6 +10,7 @@ router.get('/prayerboard', prayersCtrl.recentPrayers);
 // Process the token for only the routes below
 router.use(require('../../config/auth'));
 router.post('/', checkAuth, prayersCtrl.create);
+router.post('/edit', checkAuth, prayersCtrl.edit);
 
 /*----- Helper Functions -----*/
 function checkAuth(req, res, next) {

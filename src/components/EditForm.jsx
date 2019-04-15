@@ -6,8 +6,8 @@ import './PrayerForm.css'
 class PrayerForm extends Component {
 
   state = {
-    higherPower: '',
-    text: '',
+    higherPower: this.props.higherPower,
+    text: this.props.text,
   }
 
   handleChange = (e) => {
@@ -19,8 +19,8 @@ class PrayerForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.handlePrayer(this.state.text, this.state.higherPower)
-    this.props.history.push('/prayerboard');
+    this.props.editPrayer(this.state.text, this.state.higherPower, this.props.id)
+    this.props.history.push('/yourprayers');
   }
 
   isFormInvalid() {
@@ -28,8 +28,6 @@ class PrayerForm extends Component {
   }
 
   render() {
-    // const { email } = this.props.user
-    console.log('render!', this.props)
     return (
       <div className="PrayerForm z-depth-3">
         <form className="form-horizontal form" onSubmit={this.handleSubmit} >

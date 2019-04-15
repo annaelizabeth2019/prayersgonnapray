@@ -61,6 +61,18 @@ class App extends Component {
       } 
     }
 
+    editPrayer = async (text, higherPower, id) => {
+      try {
+        await prayerService.edit({
+          text,
+          higherPower,
+          id: id,
+        });
+      } catch (err) {
+        console.log(err);
+      } 
+    }
+
     /*--- Lifecycle Methods ---*/
 
   async componentDidMount() {

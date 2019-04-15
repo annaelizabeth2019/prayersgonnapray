@@ -5,6 +5,7 @@ module.exports = {
   create,
   savePrayer,
   recentPrayers,
+  edit,
 };
 
   
@@ -26,7 +27,6 @@ async function create(req, res) {
     Prayer.create(req.body).then( (res) => User.findOneAndUpdate({email: user}, { $push : {prayers: res.id} })).catch(console.log(err));
   } catch (err) {
     res.json({err});
-    console.log(err)
   }
 }
 
@@ -37,3 +37,7 @@ async function recentPrayers(req, res) {
   res.json(prayers);
 }
 
+async function edit(req, res) {
+  const query = {id: req.body.id}
+  await Prayer.updateOne(query, { text: req.body.text,  higherPower: req.body.higherPower}).catch(err => console.log(err));
+}
