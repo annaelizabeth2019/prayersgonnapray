@@ -1,13 +1,15 @@
 import React from 'react';
 import './PrayerList.css';
+import { Link } from 'react-router-dom';
 
 const PrayerList = (props) => {
   return (
-    <tr>
-      <td>{props.date.substring(0,15)}</td>
-      <td>{props.higherPower}</td>
-      <td><div ClassName="truncate">{props.text}</div></td>
-    </tr>
+    
+    <div>
+      <span>{props.date.substring(0,15)}</span>&nbsp;&nbsp; | &nbsp;&nbsp;
+      <span>{props.higherPower}</span> <br />
+      <div className="row">{props.text}</div>
+    </div>
   )
 }
 

@@ -6,8 +6,8 @@ import './PrayerForm.css'
 class PrayerForm extends Component {
 
   state = {
-    higherPower: '',
-    text: '',
+    higherPower: this.props.higherPower,
+    text: this.props.text,
   }
 
   handleChange = (e) => {

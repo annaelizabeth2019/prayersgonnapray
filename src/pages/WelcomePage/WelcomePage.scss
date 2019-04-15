@@ -2,6 +2,7 @@ body .WelcomePage {
     text-align: center;
     max-height: 100vmin;
     color: rgb(42, 57, 113);
+    background-color: rgb(229, 129, 140);
   }
   
   p {
@@ -18,7 +19,6 @@ body .WelcomePage {
     background-color: rgb(229, 129, 140);
     min-height: 100vh;
     display: flex;
-    // flex-direction: column;
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);

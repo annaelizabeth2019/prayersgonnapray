@@ -61,13 +61,22 @@ class App extends Component {
       } 
     }
 
-    editPrayer = async (text, higherPower, id) => {
+    handleUpdate = async (text, higherPower, id) => {
       try {
-        await prayerService.edit({
+        await prayerService.updatePrayer({
           text,
           higherPower,
-          id: id,
+          id,
         });
+      } catch (err) {
+        console.log(err);
+      } 
+    }
+
+    handleDelete = async (prayerId) => {
+      console.log('got to this function')
+      try {
+        await prayerService.deletePrayer(prayerId);
       } catch (err) {
         console.log(err);
       } 
@@ -85,7 +94,7 @@ class App extends Component {
     const prayers = this.state.user ? await userService.myPrayers(this.state.user.email).catch(err => console.log(err)) : [];
     this.setState({prayers})
     let prayerLocs = []
-    await prayerService.index().then(objs => objs.map(obj => obj.location.lat ? prayerLocs.push(obj.location) : prayerLocs.push({lat: 35.652832, lng: 139.6503})))
+    await prayerService.index().then(objs => objs ? objs.map(obj => obj.location.lat ? prayerLocs.push(obj.location) : prayerLocs.push({lat: 35.652832, lng: 139.6503})) : prayerLocs = [{lat: 35.652832, lng: 139.6503}, {lat: 40.7608, lng: -111.8910}, {lat: 30.2672, lng: -97.7431}]) //If I can't get the prayer locations to come back, there's an array of backup locations for the markers. If a user blocks geolocation, their location is not included. 
     this.setState({prayerLocs});
   }
 
@@ -109,6 +118,8 @@ class App extends Component {
             history={history}
             user={this.state.user}
             prayers={this.state.prayers}
+            handleUpdate={this.handleUpdate}
+            handleDelete={this.handleDelete}
           />
         }/>
         <Route exact path='/signup' render={({ history }) => 
@@ -138,7 +149,7 @@ class App extends Component {
             history={history}
             user={this.state.user}
             location={this.state.location}
-            handlePrayer={this.handlePrayer}
+            handleUpdate={this.handleUpdate}
             />
             :
             <Redirect to='/login' />

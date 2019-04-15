@@ -5,7 +5,9 @@ module.exports = {
   create,
   savePrayer,
   recentPrayers,
-  edit,
+  updatePrayer,
+  deletePrayer,
+  getOnePrayer
 };
 
   
@@ -33,11 +35,23 @@ async function create(req, res) {
 async function recentPrayers(req, res) {
   const prayers = await Prayer.find({})
     .sort({timeStamps: -1})
-    .limit(req.query.limit || 50);
+    .limit(21);
   res.json(prayers);
 }
 
-async function edit(req, res) {
-  const query = {id: req.body.id}
-  await Prayer.updateOne(query, { text: req.body.text,  higherPower: req.body.higherPower}).catch(err => console.log(err));
+async function updatePrayer(req, res) {
+  await Prayer.findByIdAndUpdate(req.params.id, { text: req.body.text,  higherPower: req.body.higherPower}).catch(err => console.log(err));
+}
+
+async function deletePrayer(req, res) {
+  console.log('made it to the controller!')
+  await Prayer.findByIdAndRemove(req.body.prayerId).then(function(prayer) {
+    res.status(200).json(prayer).catch(err => console.log(err));
+  });
+}
+
+async function getOnePrayer(req, res) {
+  await Prayer.findById(req.params.id).then(function(prayer) {
+    res.status(200).json(prayer).catch(err => console.log(err));
+  });
 }

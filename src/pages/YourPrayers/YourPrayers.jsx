@@ -5,18 +5,19 @@ import headerImg from '../../images/sculpture.png'
 import Loading from '../../components/Loading/Loading'
 import GlitchBtn from '../../components/GlitchBtn/GlitchBtn'
 import MapContainer from '../../components/Map/Map'
-import prayerService from '../../utils/prayerService'
+// import prayerService from '../../utils/prayerService'
+import { CollapsibleItem, Collapsible } from 'react-materialize'
+import EditForm from '../../components/EditForm/EditForm'
 
 class YourPrayers extends Component {
-
-    // state = {
-    //     prayers: []
-    // };
-
-    // async componentDidMount() {
-    //     const prayers = await prayerService.()
-    //     this.setState({prayers: prayers})
-    //     }
+    constructor(props) {
+        super(props);
+        this.state = {message: ''}
+      }
+    
+      updateMessage = (msg) => {
+        this.setState({message: msg});
+      }
 
     render() {
         return (
@@ -26,39 +27,50 @@ class YourPrayers extends Component {
                     <header>
                         <h4>YOUR &nbsp; P R A Y E R S</h4>
                     </header> 
-                    <table className="highlight">
-                        <thead>
-                            <tr>
-                                <th>Time</th>
-                                <th>Higher Power</th>
-                                <th>Prayer</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                    {this.props.prayers && this.props.prayers.length >= 1 ? this.props.prayers.map((prayer, idx) => 
+                    
+                        <Collapsible>
+                        {this.props.prayers && this.props.prayers.length >= 1 ? this.props.prayers.map((prayer, idx) => 
                         //This will make a table of prayers. It takes a moment to load
-                        <PrayerList 
-                        higherPower={prayer.higherPower}
-                        text={prayer.text}
-                        date={Date(prayer.createdAt)}
-                        idx={idx}
-                        />
-                    ): 
+                            <CollapsibleItem 
+                            className="black" 
+                            header={
+                                <PrayerList 
+                                className="black"
+                                higherPower={prayer.higherPower}
+                                text={prayer.text}
+                                date={Date(prayer.createdAt)}
+                                idx={idx}
+                            />}>
+                                    <EditForm 
+                                    {...this.props} 
+                                    location={prayer.location}
+                                    updateMessage={this.updateMessage}
+                                    higherPower={prayer.higherPower}
+                                    text={prayer.text}
+                                    date={Date(prayer.createdAt)}
+                                    idx={idx}
+                                    id={prayer._id}
+                                    />
+
+                            </CollapsibleItem>)
+                        
+                    : 
                     //This is what it says when the user doesn't have a prayer.
                     <div>
                         <Loading />
                     </div>} 
-                        </tbody>
-                    </table>
+                    </Collapsible>
                 </div>
                 <div className="col s3 YP-container right">
                     <img src={ headerImg } alt="a sculpture of a holy woman" className="user-dash-pic responsive-img hide-on-small-only"  />    
                 </div>
-            </div>
             <div className="row center">
-                <p>Perhaps you would like to </p><GlitchBtn link="prayerrequest"
+                <h6>Perhaps you would like to </h6>
+                <GlitchBtn link="prayerrequest"
                 text="PRAY!" />
             </div>
+            </div>
+            <div></div>
             <div className="row">
                 {this.props.prayers ? 
                 //the map component       
