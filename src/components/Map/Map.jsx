@@ -18,8 +18,9 @@ export class MapContainer extends React.Component {
             lng: -97.74300649999999
           }}
         >
-        {this.props.markers.map(marker =>  {
+        {this.props.markers.map((marker, idx) =>  {
           return (<Marker
+          key={idx}
           position={{lat: marker.lat, lng: marker.lng}} />)
         })}
  

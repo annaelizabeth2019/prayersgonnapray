@@ -48,7 +48,7 @@ class YourPrayers extends Component {
                                     higherPower={prayer.higherPower}
                                     text={prayer.text}
                                     date={Date(prayer.createdAt)}
-                                    idx={idx}
+                                    key={idx}
                                     id={prayer._id}
                                     />
 
