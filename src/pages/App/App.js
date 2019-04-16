@@ -150,6 +150,7 @@ class App extends Component {
             user={this.state.user}
             location={this.state.location}
             handleUpdate={this.handleUpdate}
+            handlePrayer={this.handlePrayer}
             />
             :
             <Redirect to='/login' />

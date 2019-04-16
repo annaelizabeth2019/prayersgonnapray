@@ -7,7 +7,9 @@ class LoginPage extends Component {
   render() {
     return (
       <div className="LoginPage flex-column">
-        <LoginForm {...this.props} updateMessage={this.updateMessage} />
+        <div className="container LoginPage-container">
+          <LoginForm {...this.props} updateMessage={this.updateMessage} />
+        </div>
       </div>
     );
   }

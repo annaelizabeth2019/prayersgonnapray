@@ -50,7 +50,7 @@ class LoginForm extends Component {
                     </div>
                     <div className="row">
                         <div className="col input-field">
-                        <button className="btn btn-large">Log In</button>&nbsp;&nbsp;&nbsp;
+                            <button className="btn btn-large">Log In</button>&nbsp;&nbsp;&nbsp;
                         <Link to='/'>Cancel</Link>
                         </div>
                     </div>

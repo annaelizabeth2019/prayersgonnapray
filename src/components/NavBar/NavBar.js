@@ -6,7 +6,7 @@ import './NavBar.scss';
 const NavBar = (props) => {
     let nav = props.user ?
       <div className="left">
-          <NavLink to='/yourprayers' className='NavBar-link' activeClassName="selected">Your p r a y e r s</NavLink>
+          <NavLink to='/yourprayers' className='NavBar-link' activeClassName="selected">Your &nbsp; p r a y e r s</NavLink>
           &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
           <NavLink to='/prayerrequest' className='NavBar-link' activeClassName="selected">Prayer Request</NavLink>
           &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;

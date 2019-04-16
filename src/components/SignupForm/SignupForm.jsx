@@ -23,7 +23,7 @@ class SignupForm extends Component {
     e.preventDefault();
     try {
       await userService.signup(this.state);
-      this.props.handleSignupOrLogin();
+      this.props.handleSignSignup();
       // Back to the main
       this.props.history.push('/');
     } catch (err) {
@@ -38,11 +38,14 @@ class SignupForm extends Component {
 
   render() {
     return (
-      <div className="LoginForm flex-column z-depth-5 container">
-        <header className="header-footer LoginPageHeader"><h1>S I G N &nbsp; U P</h1></header>
-        <form className="LoginPageHeader row" onSubmit={this.handleSubmit} >
-          <div className="col">
+      <div className="SignupForm z-depth-5 center-align">
+        <header className="header-footer SignupPageHeader"><h1>S I G N &nbsp; U P</h1></header>
+        <div className="row flex-column">
+        <form className="SignupPageHeader col flex-column" onSubmit={this.handleSubmit} >
+          <div className="row ">
+            <div className="col">
               <input type="text" className="input-field white-text" placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange} />
+            </div>
           </div>
           <div className="row">
             <div className="col input-field white-text">
@@ -68,6 +71,7 @@ class SignupForm extends Component {
             </div>
           </div>
         </form>
+        </div>
       </div>
     );
   }

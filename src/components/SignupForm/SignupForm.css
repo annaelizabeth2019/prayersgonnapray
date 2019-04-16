@@ -4,6 +4,7 @@
     padding: 3vmin;
     align-items: center;
     color: white;
+    margin: 5vh;
 }
 
 input .SignupForm {
@@ -15,3 +16,4 @@ input .SignupForm {
     font-weight: 800;
     text-transform: uppercase;
  }
+
