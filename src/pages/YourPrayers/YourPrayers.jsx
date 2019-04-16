@@ -60,15 +60,14 @@ class YourPrayers extends Component {
                         <Loading />
                     </div>} 
                     </Collapsible>
+                <div className="row center">
+                <GlitchBtn link="prayerrequest"
+                text="PRAY!" />
+            </div>
                 </div>
                 <div className="col s3 YP-container right">
                     <img src={ headerImg } alt="a sculpture of a holy woman" className="user-dash-pic responsive-img hide-on-small-only"  />    
                 </div>
-            <div className="row center">
-                <h6>Perhaps you would like to </h6>
-                <GlitchBtn link="prayerrequest"
-                text="PRAY!" />
-            </div>
             </div>
             <div></div>
             <div className="row">

@@ -1,13 +1,12 @@
 body .YourPrayers {
-    min-height: 200vh;
+    /* min-height: 200vh; */
+    margin-top: -3vh;
     background-color: black;
     background-image: url('../../images/blackstar.jpg');
     font-weight: 800;
     color: rgb(225	195	224	);
     background-size: cover;
     font-family: 'Roboto', cursive;
-    /* display: flex; */
-    /* flex-flow: row wrap; */
     
 }
 
