@@ -11,9 +11,12 @@ You can pray for anything. To anyone. You can see prayers all over the world.
 <br><br>
 Prayers Gonna Pray is built with mongoDB, Express, React, and Node. 
 <br><br>
-Materialize CSS library is used for styling. 
+Materialize CSS library is used for styling as well as the react-materialize npm module. 
 <br><br>
-The Google maps API is used to fetch user locations. JSON webtokens are used for authorization. 
+The Google geolocation API is used to fetch user locations. 
+A publicly available Google Maps key was used for the maps. 
+<br><br>
+JSON webtokens are used for authorization. 
 
 
 ### Getting Started

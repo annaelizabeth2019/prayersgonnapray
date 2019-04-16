@@ -18,7 +18,7 @@ class PrayerBoard extends Component {
             return (
                 <div className="PrayerBoard">
                     <div className="row">
-                        {this.state.prayers.length > 1 ? 
+                        {this.state.prayers && this.state.prayers.length ? 
                         <div className="PrayerBoard-container">
                         {this.state.prayers.map((prayer, idx) => 
                             <PrayerCard
