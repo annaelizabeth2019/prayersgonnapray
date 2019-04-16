@@ -1,6 +1,5 @@
 body .PrayerBoard {
-    min-width: 100%;
-    min-height: 230vh;
+    margin: 0;
     background-image: url('https://images2.alphacoders.com/964/964425.jpg');
     background-size: cover;
 }

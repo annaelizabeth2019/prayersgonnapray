@@ -23,7 +23,7 @@ class SignupForm extends Component {
     e.preventDefault();
     try {
       await userService.signup(this.state);
-      this.props.handleSignSignup();
+      this.props.handleSignupOrLogin();
       // Back to the main
       this.props.history.push('/');
     } catch (err) {
@@ -64,8 +64,6 @@ class SignupForm extends Component {
           </div>
           <div className="row white-text">
             <div className="col-sm-12 text-center white-text">
-
-            <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
               <button className="btn btn-default" disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
               <Link to='/'>Cancel</Link>
             </div>

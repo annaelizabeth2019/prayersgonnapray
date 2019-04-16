@@ -25,7 +25,7 @@ const NavBar = (props) => {
         
       return (
         <div className='NavBar nav-wrapper'>
-          <div className="container">
+          <div className="container center-align">
             {nav}
           </div>
           <div className="brand-logo right">

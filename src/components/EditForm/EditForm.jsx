@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { TextInput } from 'react-materialize'
+import './EditForm.css'
 
 
 class EditForm extends Component {
@@ -35,7 +35,7 @@ class EditForm extends Component {
     return (
       <div>
         <form className="form-horizontal" onSubmit={this.handleSubmit} >
-        <div className="flex-column">
+        <div className="flex-column row input-field">
           <div>
             <TextInput className="white-text" label="Higher Power" value={this.state.higherPower} name="higherPower" onChange={this.handleChange}  /><br></br>
             <TextInput label="Prayer" className="white-text" value={this.state.text} name="text" onChange={this.handleChange} />
