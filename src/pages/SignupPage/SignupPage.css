@@ -1,8 +1,8 @@
 body .SignupPage {
-    height: 100vmin;
+    min-height: 100vh;
     background-image: url('../../images/MeltingIceCreambyMathieuStPierre2.jpg');
     background-size: cover;
-    background-position: center;
+    /* background-position: center; */
     text-align: center;
     font-family: 'Roboto', sans-serif;
     color: white;

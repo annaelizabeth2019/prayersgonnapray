@@ -15,8 +15,10 @@ class SignupPage extends Component {
   render() {
     return (
       <div className='SignupPage flex-column white-text'>
+      <div className="container SignupPage-container">
         <SignupForm {...this.props} updateMessage={this.updateMessage} />
         <p>{this.state.message}</p>
+      </div>
       </div>
     );
   }
