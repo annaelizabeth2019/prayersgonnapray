@@ -26,6 +26,7 @@ class SignupForm extends Component {
       this.props.handleSignupOrLogin();
       // Back to the main
       this.props.history.push('/');
+      
     } catch (err) {
       // Invalid user data
       this.props.updateMessage(err.message);

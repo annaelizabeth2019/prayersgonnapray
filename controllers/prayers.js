@@ -34,7 +34,7 @@ async function create(req, res) {
 
 async function recentPrayers(req, res) {
   const prayers = await Prayer.find({})
-    .sort({timeStamps: -1})
+    .sort({createdAt: -1})
     .limit(21);
   res.json(prayers);
 }
