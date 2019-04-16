@@ -113,7 +113,8 @@ class App extends Component {
             markers={this.state.prayerLocs}
           />
         }/>
-        <Route exact path='/yourprayers' render={({ history }) => 
+        <Route exact path='/yourprayers' render={({ history }) => (
+          userService.getUser() ?
           <YourPrayers
             history={history}
             user={this.state.user}
@@ -121,6 +122,9 @@ class App extends Component {
             handleUpdate={this.handleUpdate}
             handleDelete={this.handleDelete}
           />
+          :
+            <Redirect to='/login' />
+        )
         }/>
         <Route exact path='/signup' render={({ history }) => 
           <SignupPage
