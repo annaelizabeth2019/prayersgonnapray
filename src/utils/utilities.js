@@ -6,9 +6,3 @@ export function getCurrentLatLng() {
       }));
     });
   }
-
-// export function getReverseGeocode() {
-//   return new Promise(resolve => {
-//     navigator.geolocation.
-//   })
-// }
